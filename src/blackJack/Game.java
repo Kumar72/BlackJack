@@ -36,7 +36,7 @@ public class Game {
 			
 			boolean endGame = false;
 
-			p.setHand(hand.addCard();
+			
 			p.setHand(hand);
 			d.setHand(hand);
 			d.setHand(hand);
@@ -45,7 +45,7 @@ public class Game {
 				System.out.println("Your Hand: \t");
 				System.out.println(p.toString());
 				System.out.println("Your hand total: " + p.getHand().getTotal());
-				System.out.println("Dealer Hand: \t" + );
+				System.out.println("Dealer Hand: \t" + d1.dealCard().toString());
 				
 			}
 			
