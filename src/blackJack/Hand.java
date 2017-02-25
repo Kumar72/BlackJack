@@ -8,22 +8,34 @@ public class Hand {
 	Deck access = new Deck();
 	
 	
-	public void addCard(Card card) {
+	public void addCard(List<Card> cards) {
+		hand = cards;
 		//Hit 		
 	}
 	
+	
 	public List<Card> getCardsInHand() {
-				//this is a card returned from Deck!!! 
-		hand.add(access.dealCard());
-		hand.add(access.dealCard());
-		
+				//this is a card returned from Deck!!!
 		return hand;
 	}
 	
-	public int getValueOfHand() {
+	public Integer getTotal() {
+		Integer t = 0;
+		for(Card card: hand) {
+			t += card.getValue();
+		}
 		
-		//sum of the card! 
-		return 0;
+		return t;
+	}
+	
+//	public int getValueOfHand() {
+//		
+//		//sum of the card! 
+//		return 0;
+//	}
+	
+	public int compareHand(Hand otherHand) {
+		return this.getTotal().compareTo(otherHand.getTotal());
 	}
 	
 }

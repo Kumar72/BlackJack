@@ -2,81 +2,73 @@ package blackJack;
 
 public class Card {
 
-	// calls the enum's
+	//enums and values 
 	private Ranks rank;
 	private Suits suit;
-	private Integer faceValue;
-
-	// uses switch to assign value to each card!
-//	public Integer assignValueToCard(Ranks rank) { // call this method when the card is
-//										// dealt
-//			switch (rank) {
-//			case TWO:
-//				faceValue = 2;
-//				break;
-//			case THREE:
-//				faceValue = 3;
-//				break;
-//			case FOUR:
-//				faceValue = 4;
-//				break;
-//			case FIVE:
-//				faceValue = 5;
-//				break;
-//			case SIX:
-//				faceValue = 6;
-//				break;
-//			case SEVEN:
-//				faceValue = 7;
-//				break;
-//			case EIGHT:
-//				faceValue = 8;
-//				break;
-//			case NINE:
-//				faceValue = 9;
-//				break;
-//			case TEN:
-//			case JACK:
-//			case QUEEN:
-//			case KING:
-//				faceValue = 10;
-//				break;
-//			case ACE:
-//				faceValue = 11;
-//				break;
-//			}
-//		
-//		return faceValue;
-//	}
+	private int faceValue;
 
 	// ctor
 	public Card(Ranks r, Suits s) {
 		rank = r;
 		suit = s;
-		//faceValue = v;
-	}
-	//ctor
-	public Card() {
 		
-	}	
+		switch (r) {
+		case TEN:
+		case JACK:
+		case QUEEN:
+		case KING:
+			faceValue = 10;
+			break;
+		case ACE:
+			faceValue = 11;
+			break;
+		case TWO:  
+			faceValue = 2; break;
+		case THREE:  
+			faceValue = 3; break;
+		case FOUR:  
+			faceValue = 4; break;
+		case FIVE:  
+			faceValue = 5; break;
+		case SIX:  
+			faceValue = 6; break;
+		case SEVEN:  
+			faceValue = 7; break;
+		case EIGHT:  
+			faceValue = 8; break;
+		case NINE:  
+			faceValue = 9; break;
+		}
+		
+	}
 	
-	
+	//An Ace 
+	public boolean anAce () {
+		return getRank() == rank.ACE;
+	}
 
+	
+	//getters
 	public Ranks getRank() {
 		return rank;
-	}
-
-	public void setRank(Ranks rank) {
-		this.rank = rank;
 	}
 
 	public Suits getSuit() {
 		return suit;
 	}
 
+	public int getValue() {
+		return faceValue;
+	}
+
+	//setter
+	public void setValue(int value) {
+		faceValue = value;
+	}
+
 	// toString to print all the cards
 	public String toString() {
-		return (rank /*+"(" + faceValue +") " */+ " of " + suit);
+		return (rank /*+"(" + faceValue +") " */+ " of " + suit).toLowerCase();
 	}
 
 	// make hashCodes for all the cards

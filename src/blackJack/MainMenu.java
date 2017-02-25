@@ -15,7 +15,7 @@ public class MainMenu {
 	// MAIN 
 	public static void main(String[] args) {
 		//Default
-		Player p1 = new Player("Aryan",500);
+	
 		
 		MainMenu startUP = new MainMenu();
 		startUP.mainMenu();
@@ -26,13 +26,14 @@ public class MainMenu {
 	
 	public void mainMenu() {
 
-	//	DisplayMenu();
+		DisplayMenu();
 
-		Deck printDeck = new Deck();
+		//TESTS
+	//	Deck printDeck = new Deck();
 	//	printDeck.createDeck();
-	//	 printDeck.shuffleDeck();
-	//	 printDeck.cardsLeft();
-		printDeck.dealCard();
+	//	printDeck.shuffleDeck();
+	//	printDeck.cardsLeft();
+	// 	printDeck.dealCard();
 		 
 	}
 

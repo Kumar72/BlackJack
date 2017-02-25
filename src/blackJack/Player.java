@@ -1,19 +1,29 @@
 package blackJack;
 
+import java.util.List;
+
 public class Player {
 
+	
 	Hand hand = new Hand();
 	//fields
 	private String name;
-	private Integer wallet;
+	private Double wallet;
+	private Double bet;
+
 
 	
 	//ctor
-	public Player(String name, Integer wallet) {
+	public Player(String name, Double wallet) {
 		this.name = name;
 		//this.hand = hand;  		//needs to be random
 		this.wallet = wallet;
 	}
+	
+	public Player() {
+		
+	}
+	
 	
 	//---------------------------METHODS----------------------//
 	
@@ -32,20 +42,51 @@ public class Player {
 		double placeMoney;
 	}
 	
+	public void hit(List<Card> card) {
+		hand.addCard(card);
+	}
+	
+	public boolean bust () {
+		if(hand.getTotal() > 21) {
+			return true;
+		}
+		return false;
+	}
+
+	public boolean blackJack () {
+		if(hand.getTotal() == 21) {
+			return true;
+		}
+		return false;
+	}
+	
 	
 	//-----Getters Setters & toString
 
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Player name: ");
-		builder.append(name);
-		builder.append("\nHand: ");
-		builder.append(hand);
-		builder.append("\nWallet: $");
-		builder.append(wallet);
-		builder.append("\n");
-		return builder.toString();
+//	@Override
+//	public String toString() {
+//		StringBuilder builder = new StringBuilder();
+//		builder.append("Player name: ");
+//		builder.append(name);
+//		builder.append("\nHand: ");
+//		builder.append(hand);
+//		builder.append("\nWallet: $");
+//		builder.append(wallet);
+//		builder.append("\n");
+//		return builder.toString();
+//	}
+	public boolean placeBet (Double bet) {
+		//setting the bet
+		if(bet <= getWallet()) {
+			this.bet = bet;
+			setWallet(getWallet()-bet);
+			return true;
+		}
+		
+		return false;
+	}
+	public double getBet() {
+		return bet;
 	}
 
 	public String getName() {
@@ -64,17 +105,12 @@ public class Player {
 		this.hand = hand;
 	}
 
-	public Integer getWallet() {
+	public Double getWallet() {
 		return wallet;
 	}
 
-	public void setWallet(Integer wallet) {
+	public void setWallet(Double wallet) {
 		this.wallet = wallet;
 	}
 
-	public Player()  {
-		
-	}
-	
-	
 }

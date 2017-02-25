@@ -7,7 +7,7 @@ public class PlayerSetUp {
 	protected void setUp() {
 		Scanner input = new Scanner(System.in);
 		int pick;
-		MainGame backToMenu = new MainGame();
+		MainMenu backToMenu = new MainMenu();
 		Player p1 = new Player();
 		Player dealer = new Player();
 		outer: do {
